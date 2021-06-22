@@ -93,7 +93,8 @@ extension AquamanPageViewController {
 extension AquamanPageViewController: UIScrollViewDelegate {
     
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
+        if UIApplication.shared.applicationState == .background { return }
+
         if scrollView == mainScrollView {
             pageController(self, mainScrollViewDidScroll: scrollView)
             let offsetY = scrollView.contentOffset.y
